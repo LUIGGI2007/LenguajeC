@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h> //libreria para el uso de raand
-#include <time.h> /libreria para el uso de time
+#include <time.h> //libreria para el uso de time
 using namespace std;
 
 void llenaDatos(int v[], int ne)
