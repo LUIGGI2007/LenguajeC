@@ -1,49 +1,46 @@
 #include <iostream>
-#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 using namespace std;
 
-
-void llenaVector(int v[], int n) {
+void llenavector(int v[], int n) {
     srand(time(NULL));
-    for (int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
+        //v[i] = rand() % 20 + 1;
         cin>>v[i];
     }
 }
-void verVector (int v[],int n ){
-
-    for (int i = 0; i < n; i++)
-    {
-        cout<<v[i]<<"\t";
+void mostrarVector(int v[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << v[i] << "\t";
     }
-    
 }
-int ordenaSeleccion(int v[],int n){
-
-    int contar=0, aux;
-    for(int i=0;i<n-1;i++){
-        for (int j=i+1; j<n ;j++){
-          contar++;
-          if(v[i]>[j]){
-            aux=v[i];
-            v[i]=v[j];
-            v[j]=aux;
-          }
+int ordenaSeleccion(int v[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            contador++;
+            if (v[i] > v[j]) {
+                int aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
+            }
         }
     }
-  return contar;
+    return contador;
 }
 
-
-main() {
+main()
+{
     int ne, comparaciones;
-    cout<<"Ingresa numeros de elementos del vector: ";
+    cout<<"Ingrese el numero de elementos del vector: ";
     cin>>ne;
     int vector[ne];
-    llenaVector (vector, ne);
-    cout<<"Vector original: \n" ;
-    verVector(vector,ne);
-    comparaciones=ordenaSeleccion(vector,ne);
-    verVector (vector,ne);
-    cout<<"\nEl numero de comparaciones=   "
-  }
+    llenavector(vector, ne);
+    cout<<"Vector original: \n";
+    mostrarVector(vector, ne);
+    comparaciones = ordenaSeleccion(vector, ne);
+    cout<<"\nVector ordenado por seleccion: \n";
+    mostrarVector(vector, ne);
+    cout<<"\nEl numero de comparaciones es: "<<comparaciones<<endl;
+}
