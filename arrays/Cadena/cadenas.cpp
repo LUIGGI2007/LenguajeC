@@ -15,22 +15,45 @@ int longitudCadena(char cad[])
     return contador;
 }
 //CORREGIR EL CODIGO PARA QUE CUENTE LA CANTIDAD DE PALABRAS EN UNA CADENA
-int contarPalabras(char cad[])
+int contarPalabras(const char cad[])
 {
-    int palabras=0;
-    bool bandera=false;
-    for (int i=0; cad[i]!='\0'; i++)
+    int palabras = 0;
+    int longitudPalabra = 0; 
+    bool enPalabra = false;
+
+    for (int i = 0; cad[i] != '\0'; i++)
     {
-        if (cad[i]==' ' && (cad[i+1]!=' ' && (cad[i+1]!='\0')))  
+        if (cad[i] != ' ')  
         {
-            palabras++; 
-            bandera=true;
+            if (!enPalabra)  
+            {
+                enPalabra = true;
+                longitudPalabra = 1; 
+            }
+            else
+            {
+                longitudPalabra++; 
+            }
         }
-        
+        else  
+        {
+            if (enPalabra && longitudPalabra > 1) 
+            {
+                palabras++;
+            }
+            enPalabra = false;
+        }
     }
-    (palabras)?palabras:palabras;
-    return palabras+1;
+
+    if (enPalabra && longitudPalabra > 1)
+    {
+        palabras++;
+    }
+
+    return palabras;
 }
+
+
 
 main ()
 {  
