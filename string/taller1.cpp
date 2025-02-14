@@ -18,7 +18,7 @@ int main (){
     cout<<"El ultimo caracter "<<cadena.back()<<endl; //Igual que cadena[cadena.length()-1]
 
     //Agregar cadenas
-    cadena.append(" morderna "); // es lo mismo que cadena += "moderna";
+    cadena.append(" morderna "); // e s lo mismo que cadena += "moderna";
     cout<<cadena<<endl;
 
     //Agregar un caracter
