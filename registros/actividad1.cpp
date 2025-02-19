@@ -53,7 +53,7 @@ main() {
         "Ecuatoriana", "O+", "Tipo C", "Ninguna", false, "Av. Ruminahui 456", "2549302948"
     };
     
-    TarjetaCredito tarjeta1 = {"Luis Torres", "2033-01-06", "4567-8912-3456-7890", 15000.50, 20000.00};
+    TarjetaCredito tarjeta1 = {"Luis Alcivar", "2033-01-06", "4567-8912-3456-7890", 15000.50, 20000.00};
 
     // Imprimir datos de un ejemplo
     cout << "Registro de Automovil: "<< auto1.codigoA << ", " << auto1.marca << " " << auto1.modelo << ", Año " << auto1.anyo << ", Placa: " << auto1.placa << endl;
