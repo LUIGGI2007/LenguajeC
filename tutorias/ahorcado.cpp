@@ -5,14 +5,14 @@
 #include "../tutorias/ahorcado.h""
 using namespace std;
 
-// Función para obtener una palabra aleatoria de la categoría seleccionada
+
 string palabraAleatoria(string palabras[]) {
     srand(time(NULL));
     int numero = rand() % 5; // Selecciona un número entre 0 y 4
     return palabras[numero];
 }
 
-// Función para mostrar el estado actual del ahorcado
+
 void mostrarAhorcado(int intentos) {
     string ahorcado[] = {
         "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
@@ -26,19 +26,19 @@ void mostrarAhorcado(int intentos) {
     cout << ahorcado[intentos] << endl;
 }
 
-// Función para mostrar la palabra con los aciertos y guiones bajos para las letras no adivinadas
+
 void mostrarPalabra(string palabra, string adivinadas) {
     for (char letra : palabra) {
         if (adivinadas.find(letra) != string::npos) {
-            cout << letra << " "; // Mostrar la letra si ha sido adivinada
+            cout << letra << " "; 
         } else {
-            cout << "_ "; // Mostrar guion si la letra no ha sido adivinada
+            cout << "_ "; 
         }
     }
     cout << endl;
 }
 
-// Función que maneja el juego
+
 void jugarAhorcado(string palabra) {
     string letrasAdivinadas = "";
     int intentos = 0;
@@ -53,18 +53,18 @@ void jugarAhorcado(string palabra) {
         cout << "Ingresa una letra: ";
         cin >> letra;
 
-        // Verificar si el usuario ingresó un solo carácter
+       
         if (!isalpha(letra)) {
             cout << "Por favor, ingresa solo una letra válida." << endl;
             continue;
         }
 
-        letra = tolower(letra); // Convertir a minúscula para evitar problemas
+        letra = tolower(letra); 
 
-        // Verificar si la letra está en la palabra
+        
         if (palabra.find(letra) != string::npos) {
             if (letrasAdivinadas.find(letra) == string::npos) {
-                letrasAdivinadas += letra; // Agregar la letra a las adivinadas
+                letrasAdivinadas += letra; 
             } else {
                 cout << "Ya ingresaste esta letra antes." << endl;
             }
@@ -73,7 +73,7 @@ void jugarAhorcado(string palabra) {
             intentos++;
         }
 
-        // Verificar si todas las letras han sido adivinadas
+     
         palabraCompleta = true;
         for (char letraPalabra : palabra) {
             if (letrasAdivinadas.find(letraPalabra) == string::npos) {
@@ -83,7 +83,7 @@ void jugarAhorcado(string palabra) {
         }
     }
 
-    // Mostrar resultado final
+   
     if (palabraCompleta) {
         cout << "\n¡Felicidades! Adivinaste la palabra: " << palabra << endl;
     } else {
@@ -92,7 +92,7 @@ void jugarAhorcado(string palabra) {
     }
 }
 
-// Función para elegir la categoría de palabras
+
 int opciones() {
     int op;
     cout << "1. Deportes" << endl;
@@ -119,7 +119,7 @@ int main() {
     
     palabraSeleccionada = palabraAleatoria(palabras);
 
-    jugarAhorcado(palabraSeleccionada); // Iniciar el juego con la palabra seleccionada
+    jugarAhorcado(palabraSeleccionada); 
 
-    return 0;
+
 }
